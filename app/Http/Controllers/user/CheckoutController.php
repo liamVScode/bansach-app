@@ -39,6 +39,7 @@ class CheckoutController extends Controller
                 $totalPrice += $cartItem->Quantity * $cartItem->book->CostPrice;
             }
         }
+
         $bookPrice = $totalPrice;
 
         if ($shippingAddressDefault) {
@@ -64,6 +65,7 @@ class CheckoutController extends Controller
                 "user.checkout-page", compact('totalPrice', 'bookPrice', 'discount', 'couponCode')
             );
         }
+
         return view(
             "user.checkout-page", compact('totalPrice', 'bookPrice', 'shippingAddressList', 'couponCode')
         );

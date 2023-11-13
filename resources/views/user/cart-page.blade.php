@@ -81,12 +81,14 @@
                             <span class="c-total-price" id="totalPrice">{{$totalPrice}} đ</span>
                         </div>
 
+                        @if(\Illuminate\Support\Facades\Auth::id())
                         @if ($cartItems && count($cartItems) > 0)
                             <form action="{{ route('checkout.page') }}" method="GET">
                                 <input type="hidden" name="couponCode">
                                 <button type="submit" class="btn btn-primary float-left w-100 text-center">Chuyển đến trang thanh toán</button>
                             </form>
 
+                        @endif
                         @endif
                     </div>
                 </div>
